@@ -24,10 +24,11 @@ public class HellobootApplication {
                     new HttpServlet() {
                         @Override
                         protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//                        super.service(req, resp);
+                            String name = req.getParameter("name");
+
                             resp.setStatus(HttpStatus.OK.value());
                             resp.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE);
-                            resp.getWriter().println("Hello Servlet");
+                            resp.getWriter().println("Hello " + name);
                         }
                     }).addMapping("/hello");
 
