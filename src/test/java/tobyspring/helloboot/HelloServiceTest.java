@@ -5,12 +5,21 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HelloServiceTest {
-     @Test
-     void simpleHelloService() {
-         SimpleHelloService helloService = new SimpleHelloService();
+    @Test
+    void simpleHelloService() {
+        HelloService helloService = new SimpleHelloService();
 
-         String ret = helloService.sayHello("Test");
+        String ret = helloService.sayHello("Test");
 
-         assertThat(ret).isEqualTo("Hello Test");
-     }
+        assertThat(ret).isEqualTo("Hello Test");
+    }
+
+    @Test
+    void helloDecorator() {
+        HelloService helloService = new HelloDecorator(name -> name);
+
+        String ret = helloService.sayHello("Test");
+
+        assertThat(ret).isEqualTo("*Test*");
+    }
 }
