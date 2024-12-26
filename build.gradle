@@ -23,6 +23,7 @@ repositories {
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
+//	implementation 'org.springframework.boot:spring-boot-starter-jetty'
 	implementation('org.springframework:spring-jdbc')
 	runtimeOnly('com.h2database:h2')
 	implementation('hikari-cp:hikari-cp:3.0.1')
